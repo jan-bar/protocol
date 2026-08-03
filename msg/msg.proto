@@ -82,6 +82,7 @@ message RevokeMsgReq {
   string conversationID = 1;
   int64 seq = 2;
   string userID = 3;
+  string sourceMessage = 4;
 }
 
 message RevokeMsgResp {}

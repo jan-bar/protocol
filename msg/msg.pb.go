@@ -840,6 +840,7 @@ type RevokeMsgReq struct {
 	ConversationID string                 `protobuf:"bytes,1,opt,name=conversationID,proto3" json:"conversationID"`
 	Seq            int64                  `protobuf:"varint,2,opt,name=seq,proto3" json:"seq"`
 	UserID         string                 `protobuf:"bytes,3,opt,name=userID,proto3" json:"userID"`
+	SourceMessage  string                 `protobuf:"bytes,4,opt,name=sourceMessage,proto3" json:"sourceMessage"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -891,6 +892,13 @@ func (x *RevokeMsgReq) GetSeq() int64 {
 func (x *RevokeMsgReq) GetUserID() string {
 	if x != nil {
 		return x.UserID
+	}
+	return ""
+}
+
+func (x *RevokeMsgReq) GetSourceMessage() string {
+	if x != nil {
+		return x.SourceMessage
 	}
 	return ""
 }
@@ -4284,11 +4292,12 @@ const file_msg_msg_proto_rawDesc = "" +
 	"\x0econversationID\x18\x02 \x01(\tR\x0econversationID\"\f\n" +
 	"\n" +
 	"DelMsgsReq\"\r\n" +
-	"\vDelMsgsResp\"`\n" +
+	"\vDelMsgsResp\"\x86\x01\n" +
 	"\fRevokeMsgReq\x12&\n" +
 	"\x0econversationID\x18\x01 \x01(\tR\x0econversationID\x12\x10\n" +
 	"\x03seq\x18\x02 \x01(\x03R\x03seq\x12\x16\n" +
-	"\x06userID\x18\x03 \x01(\tR\x06userID\"\x0f\n" +
+	"\x06userID\x18\x03 \x01(\tR\x06userID\x12$\n" +
+	"\rsourceMessage\x18\x04 \x01(\tR\rsourceMessage\"\x0f\n" +
 	"\rRevokeMsgResp\"g\n" +
 	"\x11MarkMsgsAsReadReq\x12&\n" +
 	"\x0econversationID\x18\x01 \x01(\tR\x0econversationID\x12\x12\n" +
