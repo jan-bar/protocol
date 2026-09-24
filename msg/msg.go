@@ -149,7 +149,7 @@ func (x *SetConversationHasReadSeqReq) Check() error {
 	if x.UserID == "" {
 		return errors.New("userID is empty")
 	}
-	if x.HasReadSeq < 1 {
+	if x.HasReadSeq < 1 && x.HasReadSeq != -1 {
 		return errors.New("hasReadSeq is invalid")
 	}
 	return nil
